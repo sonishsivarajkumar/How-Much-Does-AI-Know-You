@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "how-much-does-ai-know-you"
+version = "0.1.0"
+description = "Open-source toolkit to audit your exposure to AI models and data brokers"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Sonish Sivarajkumar", email = "sonishsivarajkumar@example.com"}
+]
+keywords = ["privacy", "ai", "data", "audit", "security"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Security",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "requests>=2.31.0",
+    "click>=8.1.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.5.0",
+    "sqlalchemy>=2.0.0",
+    "aiosqlite>=0.19.0",
+    "tweepy>=4.14.0",
+    "PyGithub>=1.59.0",
+    "openai>=1.0.0",
+    "anthropic>=0.7.0",
+    "jinja2>=3.1.0",
+    "rich>=13.0.0",
+    "pandas>=2.0.0",
+    "plotly>=5.17.0",
+    "praw>=7.7.0",
+    "playwright>=1.40.0",
+    "aiofiles>=23.2.0",
+    "psutil>=5.9.0",
+    "cryptography>=41.0.0",
+    "schedule>=1.2.0",
+    "selenium>=4.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.7.0",
+]
+
+[project.scripts]
+ai-audit = "ai_audit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You"
+Repository = "https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You"
+Issues = "https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

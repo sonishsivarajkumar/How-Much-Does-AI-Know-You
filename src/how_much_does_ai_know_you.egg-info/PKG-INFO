@@ -1,0 +1,212 @@
+Metadata-Version: 2.4
+Name: how-much-does-ai-know-you
+Version: 0.1.0
+Summary: Open-source toolkit to audit your exposure to AI models and data brokers
+Author-email: Sonish Sivarajkumar <sonishsivarajkumar@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You
+Project-URL: Repository, https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You
+Project-URL: Issues, https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You/issues
+Keywords: privacy,ai,data,audit,security
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Security
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: pydantic>=2.5.0
+Requires-Dist: sqlalchemy>=2.0.0
+Requires-Dist: aiosqlite>=0.19.0
+Requires-Dist: tweepy>=4.14.0
+Requires-Dist: PyGithub>=1.59.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: anthropic>=0.7.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: plotly>=5.17.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.7.0; extra == "dev"
+Dynamic: license-file
+
+# How Much Does AI Know You?
+
+An open-source toolkit that helps you audit your "exposure" to AI models and data brokers by analyzing your public digital footprint.
+
+## 🎯 Core Goals
+
+- **Visibility**: Reveal what personal signals AI APIs can infer about you
+- **Auditability**: Generate "privacy scorecards" from your public footprint  
+- **Actionability**: Recommend concrete steps to reduce unwanted exposure
+
+## 🚀 Features
+
+### Phase 1 (MVP)
+- ✅ GitHub profile analysis
+- ✅ Twitter/X profile analysis  
+- ✅ LLM inference for core signals (dev skills, sentiment, location)
+- ✅ CLI reporting tool
+- ✅ Basic web dashboard
+
+### Phase 2 (Planned)
+- Reddit, LinkedIn connectors
+- Expanded inference types (health, political leaning, purchasing power)
+- Automated remediation suggestions
+
+### Phase 3 (Future)
+- Real-time breach monitoring
+- Plugin ecosystem
+- Browser extension
+
+## 🏗️ Architecture
+
+```
+├── CLI Tool (ai-audit)           # Command-line interface
+├── Web Dashboard                 # React + Tailwind UI
+├── FastAPI Backend              # API service
+├── Data Connectors              # Platform integrations
+├── Inference Engine             # LLM analysis
+└── Local Storage                # SQLite cache
+```
+
+## 🔧 Installation
+
+```bash
+# Clone the repository
+git clone git@github.com:sonishsivarajkumar/How-Much-Does-AI-Know-You.git
+cd How-Much-Does-AI-Know-You
+
+# Install dependencies
+pip install -e .
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your API keys
+```
+
+## 🚀 Quick Start
+
+### CLI Usage
+
+```bash
+# Run a complete audit
+ai-audit scan --platforms github,twitter --output report.json
+
+# Analyze specific profile
+ai-audit analyze-github --username your-username
+
+# Generate privacy report
+ai-audit report --format pdf --output privacy-report.pdf
+
+# Start continuous monitoring
+ai-audit monitor --interval daily
+```
+
+### Web Dashboard
+
+```bash
+# Start the web server
+ai-audit serve --port 8000
+
+# Open browser to http://localhost:8000
+```
+
+## ⚙️ Configuration
+
+Create a `.env` file with your API credentials:
+
+```env
+# AI Model APIs
+OPENAI_API_KEY=your_openai_key
+ANTHROPIC_API_KEY=your_anthropic_key
+
+# Platform APIs
+GITHUB_TOKEN=your_github_token
+TWITTER_BEARER_TOKEN=your_twitter_token
+
+# Optional: Local model settings
+USE_LOCAL_MODELS=false
+LOCAL_MODEL_PATH=/path/to/models
+```
+
+## 🛡️ Privacy by Design
+
+- **Local First**: All data stored locally by default
+- **No Cloud Dependencies**: Run completely offline with local models
+- **User Controlled**: You choose what data to analyze and share
+- **Open Source**: Fully auditable code (MIT License)
+
+## 📊 Sample Output
+
+```
+AI Privacy Audit Report
+======================
+
+GitHub Analysis:
+  ├── Programming Skills: Python, JavaScript (95% confidence)
+  ├── Location Signals: San Francisco, CA (78% confidence)  
+  ├── Work Schedule: Night owl pattern (82% confidence)
+  └── Technical Interests: ML/AI, Web Dev (91% confidence)
+
+Twitter Analysis:
+  ├── Sentiment: Generally positive (73% confidence)
+  ├── Political Leaning: Tech-progressive (67% confidence)
+  ├── Age Range: 25-35 (71% confidence)
+  └── Interests: Technology, Startups (89% confidence)
+
+Overall Privacy Risk: 7.2/10 (HIGH)
+
+Recommendations:
+  ⚠️  Remove location from GitHub bio
+  ⚠️  Limit commit time patterns  
+  ⚠️  Review Twitter engagement patterns
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ⚠️ Ethical Use
+
+This tool is designed for self-auditing only. Please:
+- Only analyze your own data
+- Respect platform Terms of Service
+- Be mindful of rate limits
+- Consider privacy implications
+
+## 🔗 Links
+
+- [Documentation](https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You/wiki)
+- [Issue Tracker](https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You/issues)
+- [Discussions](https://github.com/sonishsivarajkumar/How-Much-Does-AI-Know-You/discussions)
+
+---
+
+⭐ If you find this project useful, please give it a star!
